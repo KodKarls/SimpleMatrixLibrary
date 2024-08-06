@@ -1,5 +1,8 @@
 # CMake
 cmake-build-*/
 
+# Build folder for scripts
+build/
+
 # IDE folder
 .idea/
