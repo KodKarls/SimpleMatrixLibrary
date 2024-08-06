@@ -2,9 +2,9 @@
 
 cd build
 
-if "%1" == "runMatrixTests" (
-    cd tests\matrix_tests
-    .\runMatrixTests.exe
+if "%1" == "SimpleMatrixTests" (
+    cd tests
+    .\SimpleMatrixTests.exe
 ) else (
     .\SimpleMatrixLibrary.exe
 )
