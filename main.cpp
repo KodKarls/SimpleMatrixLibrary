@@ -30,15 +30,15 @@ int main()
     matrix2(2 , 1 ) = 2;
     matrix2( 2, 2 ) = 1;
 
-    Matrix resultAdd = matrix1 + matrix2;
+    const Matrix resultAdd = matrix1 + matrix2;
     std::cout << "Wynik dodawania:\n";
     resultAdd.print();
 
-    Matrix resultSub = matrix1 - matrix2;
+    const Matrix resultSub = matrix1 - matrix2;
     std::cout << "Wynik odejmowania:\n";
     resultSub.print();
 
-    Matrix resultMul = matrix1 * matrix2;
+    const Matrix resultMul = matrix1 * matrix2;
     std::cout << "Wynik mnozenia:\n";
     resultMul.print();
 
@@ -55,7 +55,7 @@ int main()
     matrix3(2 , 1 ) = 15;
     matrix3( 2, 2 ) = 10;
 
-    double determinant = matrix3.determinant();
+    const double determinant = matrix3.determinant();
     std::cout << "\nWyznacznik macierzy matrix3: " << determinant << '\n';
 
     return 0;

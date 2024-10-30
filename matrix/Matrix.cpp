@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdexcept>
 
-Matrix::Matrix( int rows, int columns ) :
+Matrix::Matrix( const int rows, const int columns ) :
         m_rows( rows ), m_columns( columns ),
         m_data( rows, std::vector< double >( columns, 0 ) )
 {
@@ -34,7 +34,7 @@ Matrix& Matrix::operator=( Matrix&& other ) noexcept
     return *this;
 }
 
-double& Matrix::operator()( int row, int column )
+double& Matrix::operator()( const int row, const int column )
 {
     if( row < 0 || row >= m_rows || column < 0 || column >= m_columns )
     {
@@ -44,7 +44,7 @@ double& Matrix::operator()( int row, int column )
     return m_data[ row ][ column ];
 }
 
-const double& Matrix::operator()( int row, int column ) const
+const double& Matrix::operator()( const int row, const int column ) const
 {
     if( row < 0 || row >= m_rows || column < 0 || column >= m_columns )
     {
@@ -142,7 +142,7 @@ double Matrix::determinant() const
     return determinant;
 }
 
-Matrix Matrix::subMatrix( int excludedRow, int excludedColumn ) const
+Matrix Matrix::subMatrix( const int excludedRow, const int excludedColumn ) const
 {
     Matrix result( m_rows - 1, m_columns - 1 );
 
@@ -189,7 +189,7 @@ void Matrix::print() const
     }
 }
 
-Matrix Matrix::identity( int size )
+Matrix Matrix::identity( const int size )
 {
     Matrix result( size, size );
 
