@@ -11,7 +11,7 @@ class MatrixTest : public ::testing::Test
 
 std::string captureOutput( const Matrix& matrix )
 {
-    std::stringstream buffer;
+    const std::stringstream buffer;
 
     std::streambuf* old = std::cout.rdbuf( buffer.rdbuf() );
     matrix.print();
@@ -25,7 +25,7 @@ TEST_F( MatrixTest, TwoParametersConstructor )
     // Given
 
     // When
-    Matrix matrix( 3, 3 );
+    const Matrix matrix( 3, 3 );
 
     // Then
     EXPECT_EQ( matrix.getRows(), 3 );
@@ -77,6 +77,21 @@ TEST_F( MatrixTest, MoveConstructor )
     EXPECT_EQ( matrix1.getColumns(), 0 );
 }
 
+TEST_F( MatrixTest, AssignmentOperator )
+{
+    // Given
+    Matrix matrix1( 3, 3 );
+    matrix1( 0, 0 ) = 1.0;
+
+    // When
+    Matrix matrix2 = matrix1;
+
+    // Then
+    EXPECT_EQ( matrix2.getRows(), matrix1.getRows() );
+    EXPECT_EQ( matrix2.getColumns(), matrix1.getColumns() );
+    EXPECT_EQ( matrix2( 0, 0 ), 1 );
+}
+
 TEST_F( MatrixTest, MoveAssignmentOperator )
 {
     // Given
@@ -100,21 +115,6 @@ TEST_F( MatrixTest, MoveAssignmentOperator )
 
     EXPECT_EQ( matrix1.getRows(), 0 );
     EXPECT_EQ( matrix1.getColumns(), 0 );
-}
-
-TEST_F( MatrixTest, AssignmentOperator )
-{
-    // Given
-    Matrix matrix1( 3, 3 );
-    matrix1( 0, 0 ) = 1.0;
-
-    // When
-    Matrix matrix2 = matrix1;
-
-    // Then
-    EXPECT_EQ( matrix2.getRows(), matrix1.getRows() );
-    EXPECT_EQ( matrix2.getColumns(), matrix1.getColumns() );
-    EXPECT_EQ( matrix2( 0, 0 ), 1 );
 }
 
 TEST_F( MatrixTest, ParenthesisOperatorNotConst )
@@ -232,8 +232,8 @@ TEST_F( MatrixTest, DeterminantMethod )
     matrix( 1, 1 ) = 4.0;
 
     // When
-    double result = matrix.determinant();
-    double expectedResult = -2.0;
+    const double result = matrix.determinant();
+    const double expectedResult = -2.0;
 
     // Then
     EXPECT_EQ( result, expectedResult );
@@ -268,11 +268,11 @@ TEST_F( MatrixTest, SubMatrixMethod )
 TEST_F( MatrixTest, GetRowsMethod )
 {
     // Given
-    Matrix matrix( 2, 2 );
+    const Matrix matrix( 2, 2 );
 
     // When
-    int result = matrix.getRows();
-    int expectedResult = 2;
+    const int result = matrix.getRows();
+    const int expectedResult = 2;
 
     // Then
     EXPECT_EQ( result, expectedResult );
@@ -281,11 +281,11 @@ TEST_F( MatrixTest, GetRowsMethod )
 TEST_F( MatrixTest, GetColumnsMethod )
 {
     // Given
-    Matrix matrix( 3, 3 );
+    const Matrix matrix( 3, 3 );
 
     // When
-    int result = matrix.getColumns();
-    int expectedResult = 3;
+    const int result = matrix.getColumns();
+    const int expectedResult = 3;
 
     // Then
     EXPECT_EQ( result, expectedResult );
@@ -301,7 +301,7 @@ TEST_F( MatrixTest, PrintMethod )
     matrix( 1, 1 ) = 4.0;
 
     // When
-    std::string expectedOutput = "         1          2 \n"
+    const std::string expectedOutput = "         1          2 \n"
                                  "         3          4 \n";
 
     // Then
