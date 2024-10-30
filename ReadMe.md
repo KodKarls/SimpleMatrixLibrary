@@ -14,11 +14,11 @@ https://ccfd.github.io/courses/cpp_projects.html
 ### Sposób uruchamiania
 #### Do prawidłowego zbudowania i uruchomienia projektu niezbędny jest:
 
-- Kompilator C/C++: w projekcie używam GCC 13.1.0:
+- Kompilator C/C++: w projekcie używam GCC 11.0:
 
 <https://winlibs.com>
 
-- CMake: projekt wykonany przy użyciu wersji 3.28:
+- CMake: projekt wykonany przy użyciu wersji 3.29:
 
 <https://cmake.org>
 
@@ -48,11 +48,11 @@ https://ccfd.github.io/courses/cpp_projects.html
 ### How to build
 #### To properly build and launch project, you need:
 
--  C/C++ compiler: project use GCC 13.1.0:
+-  C/C++ compiler: project use GCC 11.0:
 
 <https://winlibs.com>
 
-- CMake: project made on version 3.28:
+- CMake: project made on version 3.29:
 
 <https://cmake.org>
 
